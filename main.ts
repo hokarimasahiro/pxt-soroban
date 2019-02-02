@@ -10,13 +10,15 @@
 namespace soroban {
     /**
      * TODO: 数値をそろばん形式で表示する
-     * @param n 数値。, eg: 2048
+     * @param n 表示する数値。, eg: 2048
+     * @param s 表示開始位置。, eg: 0
+     * @param w 表示桁数。, eg: 4
      */
-    //% blockId="show_soroban_number" block="show a number %n"
+    //% blockId="show_soroban_number" block="show a number %n start %s width %w"
     //% weight=100 blockGap=8
-    export function showNumber(n: number): void {
+    export function showNumber(n: number,s:number=0,w:number=5): void {
         let wn=Math.abs(n)
-        for(let i=4;i>=0;i--){
+        for(let i=s+w-1;i>=s;i--){
             let d=wn % 10
             if(wn==0){
                 led.unplot(i, 0)
